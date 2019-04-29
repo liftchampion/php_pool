@@ -9,13 +9,15 @@
         display: inline-block;
         border: 0;
         border-collapse: collapse;
-        width: 91vw;
+        width: auto;
+        height: auto;
     }
     .element{
         border-collapse: collapse;
         display: inline-block;
         border: 1px solid black;
-        width: 5vw;
+        width: 100%;
+        height: 100%;
         /*height: 10vh;*/
         /*width: available;*/
     }
@@ -27,6 +29,8 @@
         border: 0;
         margin: 0;
         padding: 0;
+        width: 100%;
+        height: 100%;
     }
     p{
         margin: 0;
@@ -62,20 +66,23 @@
     .element.AC{
         background-color: darkslateblue;
     }
+    .element.UN{
+        background-color: lightslategray;
+    }
     .name{
         font-weight: bold;
         text-align: center;
-        font-size: 3vw;
+        font-size: 2.5vw;
     }
     .mass{
-        margin-right: 0.5vw;
+        margin-right: 3px;
         text-align: right;
-        font-size: 1vw;
+        font-size: 0.75vw;
     }
     .number{
-        margin-left: 0.5vw;
+        margin-left: 3px;
         text-align: left;
-        font-size: 1vw;
+        font-size: 0.75vw;
     }
     .filler{
         border: 0;
@@ -89,7 +96,7 @@
 </head>
 
 <body>
-
+<div style="text-align: center; margin: 0; padding: 0; width: 100%; height: 100%">
 <table class="tableM">
     <tr>
         <td><div class="element PN">
@@ -427,8 +434,84 @@
             <p class="name">Rd</p>
             <p class="number">86</p></div></td>
     </tr>
+    <tr>
+        <td><div class="element AM">
+            <p class="mass">223.020</p>
+            <p class="name">Fr</p>
+            <p class="number">87</p></div></td>
+        <td><div class="element AEM">
+            <p class="mass">226.025</p>
+            <p class="name">Ra</p>
+            <p class="number">88</p></div></td>
+        <td><div class="element AC">
+            <p class="mass">&nbsp;</p>
+            <p class="name">&nbsp;</p>
+            <p class="number">89-103</p></div></td>
+
+        <td><div class="element TM">
+            <p class="mass">[261]</p>
+            <p class="name">Rf</p>
+            <p class="number">104</p></div></td>
+        <td><div class="element TM">
+            <p class="mass">[262]</p>
+            <p class="name">Db</p>
+            <p class="number">105</p></div></td>
+        <td><div class="element TM">
+            <p class="mass">[266]</p>
+            <p class="name">Sg</p>
+            <p class="number">106</p></div></td>
+        <td><div class="element TM">
+            <p class="mass">[264]</p>
+            <p class="name">Bh</p>
+            <p class="number">107</p></div></td>
+        <td><div class="element TM">
+            <p class="mass">[269]</p>
+            <p class="name">Hs</p>
+            <p class="number">108</p></div></td>
+        <td><div class="element UN">
+            <p class="mass">[268]</p>
+            <p class="name">Mt</p>
+            <p class="number">109</p></div></td>
+        <td><div class="element UN">
+            <p class="mass">[269]</p>
+            <p class="name">Ds</p>
+            <p class="number">110</p></div></td>
+        <td><div class="element UN">
+            <p class="mass">[272]</p>
+            <p class="name">Rg</p>
+            <p class="number">111</p></div></td>
+        <td><div class="element TM">
+            <p class="mass">[277]</p>
+            <p class="name">Cn</p>
+            <p class="number">112</p></div></td>
+        <td><div class="element UN">
+            <p class="mass">Unknown</p>
+            <p class="name">Uut</p>
+            <p class="number">113</p></div></td>
+        <td><div class="element PTM">
+            <p class="mass">[289]</p>
+            <p class="name">Fl</p>
+            <p class="number">114</p></div></td>
+        <td><div class="element UN">
+            <p class="mass">Unknown</p>
+            <p class="name">Uup</p>
+            <p class="number">115</p></div></td>
+        <td><div class="element UN">
+            <p class="mass">[298]</p>
+            <p class="name">Lv</p>
+            <p class="number">116</p></div></td>
+        <td><div class="element UN">
+            <p class="mass">Unknown</p>
+            <p class="name">Uus</p>
+            <p class="number">117</p></div></td>
+        <td><div class="element UN">
+            <p class="mass">Unknown</p>
+            <p class="name">Uuo</p>
+            <p class="number">118</p></div></td>
+    </tr>
 
 </table>
+</div>
 
 </body>
 </html>
