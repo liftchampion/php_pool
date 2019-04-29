@@ -1,0 +1,47 @@
+body{
+    background: #505050;
+}
+.window{
+    background: #909090;
+    border-radius: 0.8vw;
+    box-shadow: 0.9vw 0.9vw 0.4vw black;
+}
+.window.title{
+    position: relative;
+    margin-top: 1%;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    height: 10vw;
+}
+.img{
+    display: inline-block;
+    /*border: 1px solid black;*/
+}
+.img.doft{
+    position: absolute;
+    top: 2.1vw;
+    width: 30%;
+}
+.img.lupa{
+    position: absolute;
+    top: 1vw;
+    left: 48vw;
+    width: 18vw;
+}
+.img.close{
+    position: absolute;
+    top: 8vw;
+    /*left: 66.5vw;*/
+    right: 0.7vw;
+    width: 1.5vw;
+    margin-right: 0.1vw;
+}
+.img.reload{
+    position: absolute;
+    top: 1vw;
+    /*left: 66.5vw;*/
+    right: 0.7vw;
+    width: 1.5vw;
+    margin-right: 1px;
+}
