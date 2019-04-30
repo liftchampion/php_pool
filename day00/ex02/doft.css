@@ -41,6 +41,18 @@ body{
     width: 7vw;
     height: 20.5vw;
 }
+.label{
+    padding-top: 0.3vw;
+    padding-left: 0.5vw;
+    padding-right: 2vw;
+    /*padding: 0.7vw;*/
+    position: absolute;
+    background: #a8fb96;
+    border-radius: 0.8vw;
+    box-shadow: 0.9vw 0.9vw 0.4vw black;
+    top: 36.5vw;
+    left: 11.7vw;
+}
 .img{
     display: inline-block;
     /*border: 1px solid black;*/
@@ -122,4 +134,21 @@ body{
     margin-left: 0.5vw;
     width: 6vw;
     height: 4vw;
+}
+.text{
+    font-size: 1vw;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+.text.line{
+    display: inline;
+}
+.text.big{
+    display: inline;
+    font-size: 1.7vw;
+    font-family: serif;
+}
+.text.curse{
+    font-style: italic;
 }
