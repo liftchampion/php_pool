@@ -44,8 +44,8 @@ body{
 .label{
     padding-top: 0.3vw;
     padding-left: 0.5vw;
-    padding-right: 2vw;
-    /*padding: 0.7vw;*/
+    padding-right: 1.8vw;
+    padding-bottom: 4vw;
     position: absolute;
     background: #a8fb96;
     border-radius: 0.8vw;
@@ -93,6 +93,7 @@ body{
     width: 3.3vw;
 }
 .img.eye{
+    border: 3px solid red;
     margin-top: 0.5vw;
     margin-left: 1.85vw;
     width: 3.3vw;
@@ -151,4 +152,31 @@ body{
 }
 .text.curse{
     font-style: italic;
+}
+.text.shadow{
+    display: inline;
+    text-shadow: 0.9vw 0.3vw 0.25vw rgba(255, 0, 0, 0.5);
+}
+.box{
+    margin: 0;
+    padding: 0;
+    width: 19.7vw;
+    height: 1.3vw;
+}
+.butt{
+    font-size: 1vw;
+    background: white;
+    border: 1px outset lightgray;
+    border-radius: 0;
+    /*display: inline;*/
+    /*margin: 0;*/
+    /*margin-top: 0.1vw;*/
+    margin-left: 0.2vw;
+    padding-left: 0.2vw;
+    padding-right: 0.2vw;
+    height: 1.6vw;
+    width: 5.5vw;
+}
+.lbl{
+    height: 1.3vw;
 }
