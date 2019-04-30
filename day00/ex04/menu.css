@@ -1,0 +1,40 @@
+.dropdown {
+    margin-left: 40vw;
+    width: 10vw;
+    margin-top: 10vw;
+    height: 10vw;
+    position: relative;
+    display: inline-block;
+}
+.drop_button {
+    background-color: green;
+    color: white;
+    width: 10vw;
+    padding: 2vw;
+    font-size: 1vw;
+    border: none;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: lightgrey;
+    width: 10vw;
+    box-shadow: 0 1vw 2vw 0 rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    font-size: 1.5vw;
+    color: black;
+    padding: 1vw 2vw;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content a:hover{
+    background-color: lightpink;
+}
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+.dropdown:hover .drop_button{
+    background-color: blueviolet;
+}
