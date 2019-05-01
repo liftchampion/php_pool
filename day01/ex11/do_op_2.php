@@ -63,21 +63,17 @@
     }
     $line = trim($argv[1]);
     $op_pos = ft_str_pos($line);
-    print ($line."->".$op_pos."\n");
     if ($op_pos == false) {
-        print ("Incorrect Parameters\n");
+        print ("Syntax Error\n");
         exit(0);
     }
     $params = ft_split($line, $op_pos);
-    print_r($params);
     if (!ft_is_numeric($params[0]) || !ft_is_numeric($params[2])) {
+        print ("Syntax Error\n");
+        exit(0);
+    }
+    if (($params[1] == '/' || $params[1] == '%') && $params[2] == 0) {
         print ("Incorrect Parameters\n");
         exit(0);
     }
-
-    /*if (count($params) != 3) {
-        print ("Incorrect Parameters\n");
-        exit(0);
-    }
-    */
-    print ("op\n");
+    print (calc($params[0], $params[1], $params[2])."\n");
