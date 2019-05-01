@@ -19,7 +19,7 @@
     position: absolute;
     background-color: lightgrey;
     width: 10vw;
-    box-shadow: 0 1vw 2vw 0 rgba(0,0,0,0.2);
+    box-shadow: 0 1vw 2vw 0 rgba(0,0,0,0.4);
     z-index: 1;
 }
 .dropdown-content a {
