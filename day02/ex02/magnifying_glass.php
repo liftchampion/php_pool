@@ -8,9 +8,9 @@
         $new_alts = [];
         $new_titles = [];
         $new_link = $link;
-        preg_match_all("/[>]{1}[\s\S]*?[<]{1}/", $link, $texts);
-        preg_match_all("/alt[\s]*=[\s]*\"[\s\S]*?\"/", $link, $alts);
-        preg_match_all("/title[\s]*=[\s]*\"[\s\S]*?\"/", $link, $titles);
+        preg_match_all("/[>]{1}[\s\S]*?[<]{1}/i", $link, $texts);
+        preg_match_all("/alt[\s]*=[\s]*\"[\s\S]*?\"/i", $link, $alts);
+        preg_match_all("/title[\s]*=[\s]*\"[\s\S]*?\"/i", $link, $titles);
         foreach ($texts[0] as $text) {
             $new_texts[] = strtoupper($text);
         }
@@ -49,7 +49,7 @@
     if ($file === false) {
         exit();
     }
-    preg_match_all("/[<]{1}[\s]*[a]{1}[\s\S]*?[>]{1}[\s\S]*?[<]{1}[\s]*[\/]{1}[a]{1}[\s]*[>]{1}/", $file, $links);
+    preg_match_all("/[<]{1}[\s]*[a]{1}[\s\S]*?[>]{1}[\s\S]*?[<]{1}[\s]*[\/]{1}[a]{1}[\s]*[>]{1}/i", $file, $links);
     foreach ($links[0] as $link) {
         $new_link = make_new_link($link);
         $file = str_replace($link, $new_link, $file);
