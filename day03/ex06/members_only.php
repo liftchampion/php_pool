@@ -1,6 +1,6 @@
 <?php
     if ($_SERVER['PHP_AUTH_USER'] == null) {
-        header('WWW-Authenticate: Basic realm="Restricted Area"');
+        header('WWW-Authenticate: Basic realm="Member area"');
         header('HTTP/1.0 401 Unauthorized');
     }
     if ($_SERVER['PHP_AUTH_USER'] == "zaz" && $_SERVER['PHP_AUTH_PW'] == "jaimelespetitsponeys") {
@@ -15,8 +15,14 @@ Hello Zaz<br />
 EOT;
     }
     else {
-        $_SERVER['PHP_AUTH_USER'] = null;
-        header('WWW-Authenticate: Basic realm="Restricted Area"');
+        header("Date: Tue, 26 Mar 2013 09:42:42 GMT");
+        header('WWW-Authenticate: Basic realm="Member area"');
         header('HTTP/1.0 401 Unauthorized');
+        header("Content-Length: 72");
+        header("Connection: close");
+        echo <<<EOT
+<html><body>That area is accessible for members only</body></html>     
+
+EOT;
     }
 ?>
