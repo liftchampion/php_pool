@@ -14,11 +14,11 @@
         if (strlen($date) == 1) {
             $date = " ".$date;
         }
+        $parsed["user"] = substr($parsed["user"], 0, strpos($parsed["user"], "\0"));
+        $parsed["line"] = substr($parsed["line"], 0, strpos($parsed["line"], "\0"));
         $date = date("F", $parsed["tvt"])." ".$date." ".date("H:i", $parsed["tvt"]);
         if ($parsed["type"] == 7) {
-            print ($parsed["user"]." ".$parsed["line"]."  ".$date."\n");
+            print ($parsed["user"]." ".$parsed["line"]."  ".$date." \n");
         }
         $i += 628;
     }
-
-
