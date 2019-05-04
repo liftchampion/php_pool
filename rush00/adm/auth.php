@@ -3,18 +3,24 @@
         if ($login == "" || $passwd_hash == "") {
             return false;
         }
-        if (!file_exists("../db/users")) {
+//        echo "1";
+        if (!file_exists("../db/users.json")) {
             return false;
         }
-        $file = file_get_contents("../db/users");
+//        echo "2";
+        $file = file_get_contents("../db/users.json");
         if ($file === false) {
             return false; // fixme read file error
         }
-        if (($data = json_decode($file)) !== TRUE){
+//        echo "3";
+        if (($data = json_decode($file, true)) == FALSE){
             return false; //fixme json error
         }
+//        echo "4";
+//        print_r($data);
         if ($data[$login]["passwd"] == $passwd_hash) {
             return ($data[$login]);
         }
+//        echo "5";
         return false;
     }

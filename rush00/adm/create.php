@@ -1,6 +1,6 @@
 <?php
-    //header( "refresh:5; url=index.html" );
-//    header("Location: index.html");
+    //header( "refresh:5; url=index.php" );
+//    header("Location: index.php");
     $log = $_POST["login"];
     $pas = $_POST["passwd"];
     //todo check bad usernames
@@ -13,7 +13,7 @@
         echo "ERROR\n";
         exit(0); // fixme get error
     }
-    if (($data = json_decode($file)) === FALSE) {
+    if (($data = json_decode($file, true)) === FALSE) {
         echo "ERROR\n";
         exit(0); // fixme json error
     }
@@ -23,7 +23,7 @@
     }
     $data[$log] = array(
         "login" => $log,
-        "passwd" => $pas,
+        "passwd" => hash("sha512", $pas),
         "is_adm" => false);
     if (($encoded = json_encode($data)) === FALSE) {
         echo "ERROR\n";
@@ -33,5 +33,5 @@
         echo "ERROR\n";
         exit(0); //fixme put error
     }
-    header("Location: index.html");
+    header("Location: index.php");
     echo "OK\n";
