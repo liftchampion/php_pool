@@ -1,4 +1,7 @@
 <?php
+    if (!file_exists("../db/goods.json") || !file_exists("../db/users.json")) {
+        header("Location: install.php");
+    }
     if (!session_start()) {
         echo "ERROR\n";
         exit(0); // fixme session error
