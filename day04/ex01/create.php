@@ -14,15 +14,15 @@
         echo "ERROR\n";
         exit(0);
     }
-    if (!file_exists("private/passwd")) {
+    if (!file_exists("../private/passwd")) {
         mkdir("private", 0755);
         $init = array(array(
             "login" => "",
             "passwd" => ""
         ));
-        file_put_contents("private/passwd", serialize($init));
+        file_put_contents("../private/passwd", serialize($init));
     }
-    $file = file_get_contents("private/passwd");
+    $file = file_get_contents("../private/passwd");
     $data = unserialize($file);
     if (find_user($log, $data)) {
         echo "ERROR\n";
@@ -32,5 +32,5 @@
         "login" => $log,
         "passwd" => hash("sha512", $pas)
     );
-    file_put_contents("private/passwd", serialize($data));
+    file_put_contents("../private/passwd", serialize($data));
     echo "OK\n";

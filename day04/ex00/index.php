@@ -2,7 +2,7 @@
     session_start();
     $log = $_GET["login"];
     $pass = $_GET["passwd"];
-    if ($log != "" && $pass != "") {
+    if ($log != "" && $pass != "" && $_GET["submit"] == "OK") {
         $_SESSION["login"] = $log;
         $_SESSION["passwd"] = $pass;
     }
