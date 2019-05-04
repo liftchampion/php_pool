@@ -7,9 +7,6 @@
         }
         return (false);
     }
-    function delay() {
-        $e = 0;
-    }
     //header( "refresh:5; url=index.html" );
     header("Location: index.html");
     $log = $_POST["login"];
@@ -17,11 +14,10 @@
     $sub = $_POST["submit"];
     if ($log == "" || $pas == "" || $sub != "OK") {
         echo "ERROR\n";
-        delay();
         exit(0);
     }
     if (!file_exists("../private/passwd")) {
-        mkdir("private", 0755);
+        mkdir("../private", 0755);
         $init = array(array(
             "login" => "",
             "passwd" => ""
@@ -32,7 +28,6 @@
     $data = unserialize($file);
     if (find_user($log, $data)) {
         echo "ERROR\n";
-        delay();
         exit(0);
     }
     $data[] = array(
@@ -41,4 +36,3 @@
     );
     file_put_contents("../private/passwd", serialize($data));
     echo "OK\n";
-    delay();

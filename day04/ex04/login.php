@@ -1,4 +1,28 @@
 <?php
+    function display_frame() {
+        echo "OK\n";
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SuPeR_CHaT!</title>
+    <style type="text/css">
+        body{
+            font: 14px sans-serif;
+        }
+        .speak {
+        background: blueviolet;
+        }
+    </style>
+</head>
+<body>
+<iframe name="chat" src="chat.php" height="550px" width="100%"></iframe>
+<iframe name="speak" class="speak" src="speak.php" height="50px" width="100%" scrolling="no"></iframe>
+</body>
+</html>
+<?php
+    }
     include "auth.php";
     $log = $_POST["login"];
     $pas = $_POST["passwd"];
@@ -9,7 +33,7 @@
     }
     $_SESSION["loggued_on_user"] = $log;
     if ($_SESSION["loggued_on_user"] != "") {
-        echo "OK\n";
+        display_frame();
     }
     else {
         echo "ERROR\n";
