@@ -1,6 +1,6 @@
 <?php
     function display_frame() {
-        echo "OK\n";
+//        echo "OK\n";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,8 +17,9 @@
     </style>
 </head>
 <body>
-<iframe name="chat" src="chat.php" height="550px" width="100%"></iframe>
+<iframe id="chat" onload="pageScroll()" name="chat" src="chat.php" height="550px" width="100%"></iframe>
 <iframe name="speak" class="speak" src="speak.php" height="50px" width="100%" scrolling="no"></iframe>
+<a href="logout.php">Logout</a>
 </body>
 </html>
 <?php

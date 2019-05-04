@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if ($_SESSION["loggued_on_user"] == "") {
+        echo "ERROR\n";
+        exit(0);
+    }
     date_default_timezone_set("Europe/Moscow");
 //    date("[H:i]", time());
     if (!file_exists("../private/chat")) {
@@ -31,7 +36,7 @@
 EOT;
     foreach ($data as &$ent) {
         if ($ent["msg"] != "") {
-            echo date("[H:i] ", $ent["time"])."<b>{$ent['login']}</b>: {$ent['msg']}<br />";
+            echo date("[H:i] ", $ent["time"])."<b>{$ent['login']}</b>: {$ent['msg']}<br />"."\n";
         }
 }
     echo "</body>\n</html>\n";

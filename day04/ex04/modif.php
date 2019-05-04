@@ -15,7 +15,6 @@
             }
         }
     }
-    header("Location: index.html");
     $log = $_POST["login"];
     $opas = $_POST["oldpw"];
     $npas = $_POST["newpw"];
@@ -37,4 +36,5 @@
     }
     upd_user($log, $data, hash("sha512", $npas));
     file_put_contents("../private/passwd", serialize($data));
+    header("Location: index.html");
     echo "OK\n";

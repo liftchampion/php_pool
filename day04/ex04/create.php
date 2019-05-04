@@ -8,7 +8,7 @@
         return (false);
     }
     //header( "refresh:5; url=index.html" );
-    header("Location: index.html");
+//    header("Location: index.html");
     $log = $_POST["login"];
     $pas = $_POST["passwd"];
     $sub = $_POST["submit"];
@@ -17,7 +17,9 @@
         exit(0);
     }
     if (!file_exists("../private/passwd")) {
-        mkdir("../private", 0755);
+        if (!file_exists("../private")) {
+            mkdir("../private");
+        }
         $init = array(array(
             "login" => "",
             "passwd" => ""
@@ -35,4 +37,5 @@
         "passwd" => hash("sha512", $pas)
     );
     file_put_contents("../private/passwd", serialize($data));
+    header("Location: index.html");
     echo "OK\n";

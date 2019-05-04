@@ -15,7 +15,9 @@
         exit(0);
     }
     if (!file_exists("../private/passwd")) {
-        mkdir("private", 0755);
+		if (!file_exists("../private")) {
+			            mkdir("../private");
+						        }
         $init = array(array(
             "login" => "",
             "passwd" => ""

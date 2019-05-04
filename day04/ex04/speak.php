@@ -23,12 +23,12 @@
             fclose($fp);
         }
     }
+    else {
+        echo "ERROR\n";
+        exit(0);
+    }
 ?>
 <!DOCTYPE html>
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <title>Login</title>-->
     <style type="text/css">
         body{
             font: 14px sans-serif;
@@ -64,12 +64,10 @@
             resize: none;
         }
     </style>
-<!--</head>-->
 <body>
 <script language="javascript">top.frames['chat'].location = 'chat.php';</script>
 <form name="speak.php" method="post" action="speak.php">
-    <textarea class="ipt" type="" name="msg" autofocus="autofocus"></textarea>
+    <textarea class="ipt" type="text" name="msg" autofocus="autofocus"></textarea>
     <input type="submit" name="submit" value="SEND" onclick="location.reload()">
 </form>
 </body>
-<!--</html>-->
