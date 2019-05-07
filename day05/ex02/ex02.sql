@@ -1,4 +1,3 @@
-USE db_ggerardy;
 INSERT into ft_tables VALUES
                              (0, 'loki', 'staff', '2013-05-01'),
                              (0, 'scadoux', 'student', '2014-01-01'),
