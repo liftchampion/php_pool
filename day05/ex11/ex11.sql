@@ -3,5 +3,7 @@ where exists
     (select 1 from member where id_user = id_user_card and exists
         (select 1 from subscription where member.id_sub = subscription.id_sub
                                       AND subscription.price > 42
-                                      AND s.price = subscription.price))
-order by last_name ASC, first_name ASC
+                                      AND s.price = subscription.price
+                                      AND s.id_sub = subscription.id_sub
+        ))
+order by last_name ASC, first_name ASC;
