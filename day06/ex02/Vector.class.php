@@ -8,18 +8,19 @@ class Vector
     }
     public function __construct(array $construct)
     {
-        $sx = 0.0;
-        $sy = 0.0;
-        $sz = 0.0;
         if (array_key_exists("orig", $construct)) {
-            $sx = (double)$construct["orig"]->getX();
-            $sy = (double)$construct["orig"]->getY();
-            $sz = (double)$construct["orig"]->getZ();
+            $s = $construct["orig"];
+        }
+        else {
+            $s = new Vertex(array(
+                "x" => 0,
+                "y" => 0,
+                "z" => 0));
         }
         if (array_key_exists("dest", $construct)) {
-            $this->_x = (double)$construct["dest"]->getX() - $sx;
-            $this->_y = (double)$construct["dest"]->getY() - $sy;
-            $this->_z = (double)$construct["dest"]->getZ() - $sz;
+            $this->_x = (double)$construct["dest"]->getX() - (double)$s->getX();
+            $this->_y = (double)$construct["dest"]->getY() - (double)$s->getY();
+            $this->_z = (double)$construct["dest"]->getZ() - (double)$s->getZ();
         }
         if (Vector::$verbose)
             print ($this." constructed\n");
@@ -71,7 +72,7 @@ class Vector
     }
     public function cos(Vector $rhs) {
         return (
-            $this->scalarProduct($rhs) / ($this->magnitude() * $rhs->magnitude()));
+            $this->dotProduct($rhs) / ($this->magnitude() * $rhs->magnitude()));
     }
     public function crossProduct(Vector $rhs) {
         return (new Vector(array("dest" => new Vertex(array(
