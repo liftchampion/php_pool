@@ -1,0 +1,18 @@
+
+<- Vertex ----------------------------------------------------------------------
+The Vertex handles vertices in space.
+
+An instance can be constructed from x,y,z coordinates:
+new Vertex( array( 'x' => 0.0, 'y' => 0.0, 'z' => 0.0 ) );
+
+Also you can specify w-coordinate and color:
+new Vertex( array( 'x' => 1.0, 'y' => 0.0, 'z' => 0.0, 'w' => 1.25, 'color' => $green ) );
+By default 'w' is 1.0
+           'color' is white.
+
+X,Y,Z,W coordinates are converted to floats.
+Color must be an instance of Color class.
+Other types cause undefined behavior
+
+X,Y,Z,W,Color are private fields so use getters/setters.
+---------------------------------------------------------------------- Vertex ->
