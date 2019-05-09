@@ -19,5 +19,5 @@
         "passwd" => hash("sha512", $pas),
         "is_adm" => false);
     set_json($data, "users");
-    header("Location: index.php");
+    header("Location: ../index.php");
     echo "OK\n";

@@ -21,10 +21,34 @@
                 exit(0); // fixme mkdir error
             }
         }
-        $init[] = array(
+        $init = [];
+        /*$init[] = array(
             "name" => "nogood",
             "img" => "no.png",
-            "price" => 0);
+            "price" => 0,
+            "count" => 0,
+            "cat" => [],
+            "id" => 0);*/
         set_json($init, "goods");
     }
-    header("Location: index.php");
+    unset($init);
+    if (!file_exists("../db/cats.json")) {
+        if (!file_exists("../db")) {
+            if (mkdir("../db") === false) {
+                echo "ERROR1\n";
+                exit(0); // fixme mkdir error
+            }
+        }
+        set_json([], "cats");
+    }
+    unset($init);
+    if (!file_exists("../db/orders.json")) {
+        if (!file_exists("../db")) {
+            if (mkdir("../db") === false) {
+                echo "ERROR1\n";
+                exit(0); // fixme mkdir error
+            }
+        }
+        set_json([], "orders");
+    }
+    header("Location: ../index.php");

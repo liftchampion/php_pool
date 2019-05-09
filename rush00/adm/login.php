@@ -13,5 +13,5 @@
     }
     $_SESSION["log"] = $log;
     $_SESSION["is_adm"] = $user["is_adm"];
-    header("Location: index.php");
+    header("Location: ../index.php");
     echo "OK\n";
