@@ -11,7 +11,7 @@
 	#chat-box {background: #fff8f8;border: 1px solid #ffdddd;border-radius: 4px;border-bottom-left-radius:0px;border-bottom-right-radius: 0px;min-height: 300px;padding: 10px;overflow: auto;
 	}
 	.chat-box-html{color: #09F;margin: 10px 0px;font-size:0.8em;}
-	.chat-box-message{color: #09F;padding: 5px 10px; background-color: #fff;border: 1px solid #ffdddd;border-radius:4px;display:inline-block;}
+	.chat-box-message{color: #09F;padding: 5px 10px; background-color: #fff;border: 1px solid #FF0000;border-radius:4px;display:inline-block;}
 	.chat-input{border: 1px solid #ffdddd;border-top: 0px;width: 100%;box-sizing: border-box;padding: 10px 8px;color: #191919;
 	}
 	</style>	
@@ -19,18 +19,19 @@
 	<script>  
 	function showMessage(messageHTML) {
 		$('#chat-box').append(messageHTML);
+        $('#chat-box2').append(messageHTML);
 	}
 
 	$(document).ready(function(){
-		var websocket = new WebSocket("ws://192.168.29.31:8090/demo/php-socket.php");
-		websocket.onopen = function(event) { 
-			showMessage("<div class='chat-connection-ack'>Connection is established!</div>");		
-		}
-		websocket.onmessage = function(event) {
-			var Data = JSON.parse(event.data);
-			showMessage("<div class='"+Data.message_type+"'>"+Data.message+"</div>");
-			$('#chat-message').val('');
-		};
+		var websocket = new WebSocket("ws://192.168.29.31:8090/php-socket.php");
+		websocket.onopen = function(event) {
+            showMessage("<div class='chat-connection-ack'>Connection is established!</div>");
+        }
+        websocket.onmessage = function(event) {
+            var Data = JSON.parse(event.data);
+            showMessage("<div class='"+Data.message_type+"'>"+Data.message+"</div>");
+            // $('#chat-message').val(''); // TODO
+        };
 		
 		websocket.onerror = function(event){
 			showMessage("<div class='error'>Problem due to some Error</div>");
@@ -61,6 +62,7 @@
 			<input type="text" name="chat-user" id="chat-user" placeholder="Name" class="chat-input" required />
 			<input type="text" name="chat-message" id="chat-message" placeholder="Message"  class="chat-input chat-message" required />
 			<input type="submit" id="btnSend" name="send-chat-message" value="Send" >
+            <div id="chat-box2"></div>
 		</form>
 </body>
 </html>

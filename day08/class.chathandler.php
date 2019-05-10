@@ -1,6 +1,7 @@
 <?php
 class ChatHandler {
-	function send($message) {
+	function send($message) /**  Отправляем сообщение каждому клиенту сокета*/
+    {
 		global $clientSocketArray;
 		$messageLength = strlen($message);
 		foreach($clientSocketArray as $clientSocket)
@@ -10,7 +11,8 @@ class ChatHandler {
 		return true;
 	}
 
-	function unseal($socketData) {
+	function unseal($socketData) /** Декодируем сообщение полученное из сокета */
+    {
 		$length = ord($socketData[1]) & 127;
 		if($length == 126) {
 			$masks = substr($socketData, 4, 4);
@@ -31,7 +33,8 @@ class ChatHandler {
 		return $socketData;
 	}
 
-	function seal($socketData) {
+	function seal($socketData) /** Кодируем сообщение для отправки в сокет */
+    {
 		$b1 = 0x80 | (0x1 & 0x0f);
 		$length = strlen($socketData);
 		
@@ -44,7 +47,8 @@ class ChatHandler {
 		return $header.$socketData;
 	}
 
-	function doHandshake($received_header,$client_socket_resource, $host_name, $port) {
+	function doHandshake($received_header,$client_socket_resource, $host_name, $port)  /**  Здороваемся с клиентом */
+    {
 		$headers = array();
 		$lines = preg_split("/\r\n/", $received_header);
 		foreach($lines as $line)
@@ -62,26 +66,29 @@ class ChatHandler {
 		"Upgrade: websocket\r\n" .
 		"Connection: Upgrade\r\n" .
 		"WebSocket-Origin: $host_name\r\n" .
-		"WebSocket-Location: ws://$host_name:$port/demo/shout.php\r\n".
+		"WebSocket-Location: ws://$host_name:$port/php-socket.php\r\n".
 		"Sec-WebSocket-Accept:$secAccept\r\n\r\n";
 		socket_write($client_socket_resource,$buffer,strlen($buffer));
 	}
 	
-	function newConnectionACK($client_ip_address) {
+	function newConnectionACK($client_ip_address) /** Отправить на фронт сообщение о коннекте юзера*/
+    {
 		$message = 'New client ' . $client_ip_address.' joined';
 		$messageArray = array('message'=>$message,'message_type'=>'chat-connection-ack');
 		$ACK = $this->seal(json_encode($messageArray));
 		return $ACK;
 	}
 	
-	function connectionDisconnectACK($client_ip_address) {
+	function connectionDisconnectACK($client_ip_address) /** Отправить на фронт сообщение о дисконнекте юзера*/
+    {
 		$message = 'Client ' . $client_ip_address.' disconnected';
 		$messageArray = array('message'=>$message,'message_type'=>'chat-connection-ack');
 		$ACK = $this->seal(json_encode($messageArray));
 		return $ACK;
 	}
 	
-	function createChatBoxMessage($chat_user,$chat_box_message) {
+	function createChatBoxMessage($chat_user,$chat_box_message) /** Отправить на фронт сообщение от юзера*/
+    {
 		$message = $chat_user . ": <div class='chat-box-message'>" . $chat_box_message . "</div>";
 		$messageArray = array('message'=>$message,'message_type'=>'chat-box-html');
 		$chatMessage = $this->seal(json_encode($messageArray));
