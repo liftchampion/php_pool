@@ -28,9 +28,10 @@
             showMessage("<div class='chat-connection-ack'>Connection is established!</div>");
         }
         websocket.onmessage = function(event) {
+		    console.log(event);
             var Data = JSON.parse(event.data);
             showMessage("<div class='"+Data.message_type+"'>"+Data.message+"</div>");
-            // $('#chat-message').val(''); // TODO
+            $('#chat-message').val(''); // TODO
         };
 		
 		websocket.onerror = function(event){
