@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form">
+    <input type="text" id="lhs">
+    <select id="op">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>/</option>
+        <option>%</option>
+    </select>
+    <input type="text" id="rhs">
+    <input type="submit" value="Try me!" id="sub">
+</form>
+<script>
+    window.setInterval(function () {
+        alert("Please, use me...")
+    }, 30000);
+    function calc(lhs, op, rhs) {
+        if (op === '+') {
+            return lhs + rhs;
+        }
+        if (op === '-') {
+            return lhs + rhs;
+        }
+        if (op === '*') {
+            return lhs + rhs;
+        }
+        if (op === '/') {
+            if (rhs === 0) {
+                return 'It\'s over 9000!';
+            }
+            return lhs / rhs;
+        }
+        if (op === '%') {
+            if (rhs === 0) {
+                return 'It\'s over 9000!';
+            }
+            return lhs % rhs;
+        }
+    }
+    let fm = document.getElementById('form');
+    fm.onsubmit = (function(event) {
+        event.preventDefault();
+        let lhs = document.getElementById('lhs').value;
+        let op =   document.getElementById('op').value;
+        let rhs = document.getElementById('rhs').value;
+        if (!lhs.match(/^[\d]+$/) || !rhs.match(/^[\d]+$/) || !op.match(/^[+\-*/%]$/)) {
+            alert('Error :(\'');
+            return;
+        }
+        lhs = parseInt(lhs);
+        rhs = parseInt(rhs);
+        let res = calc(lhs, op, rhs);
+        console.log(res);
+        alert(res);
+    })
+</script>
+
+</body>
+</html>
